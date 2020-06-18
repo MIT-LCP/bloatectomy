@@ -26,8 +26,8 @@ affiliations:
 date: 1 June 2020
 bibliography: paper.bib
 ---  
-url: https://github.com/MIT-LCP/bloatectomy
-*corresponding author
+url: https://github.com/MIT-LCP/bloatectomy  
+*corresponding author. 
 The authors are listed in order of contributions to the work and manuscript.
 
 
