@@ -19,8 +19,8 @@ renal failure of unclear duration.
 Abd pain:
 '''
 
-bloatectomy(text, style='highlight', display=False, output='html', output_numbered_tokens=True, output_original_tokens=True)
+bloatectomy(text, style='highlight',  output='html')
 
-bloatectomy('sample_text.txt', style='highlight', display=False, filename='sample_txt_output', output='html', output_numbered_tokens=True, output_original_tokens=True)
+bloatectomy('./input/sample_text.txt', style='highlight', display=True, filename='./output/sample_txt_output', output='html', output_numbered_tokens=True, output_original_tokens=True)
 
-bloatectomy('sample_text.docx', style='bold', display=False, filename='sample_docx_output', output='docx')
+bloatectomy('./input/sample_text.docx', style='bold', display=False, filename='./output/sample_docx_output', output='docx')
