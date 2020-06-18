@@ -17,6 +17,7 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #Authors: Summer K. Rankin summerkrankin@gmail.com, Roselie A. Bright roselie.bright@fda.hhs.gov, Katherine R. Dowdy katerdowdy@gmail.com
+#https://github.com/MIT-LCP/bloatectomy
 
 import re
 import sys
