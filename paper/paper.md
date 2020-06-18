@@ -32,11 +32,7 @@ The authors are listed in order of contributions to the work and manuscript.
 
 
 # Summary
-Objective: Identify duplicate sentences in unstructured healthcare notes, mark them for manual review, and remove them from statistical analysis.
-Introduction: Duplicated sentences (“note bloat”) in unstructured electronic healthcare records hamper scientific research. Existing methods did not meet our needs.
-Methods: We adapted the LZW compression algorithm into a new method and designed parameters to allow customization for varying data and research needs.
-Results: Examples are presented.
-Conclusions: The Bloatectomy method works, is available for use, and can be adapted for other settings.
+Duplicated sentences (“note bloat”) in unstructured electronic healthcare records hamper scientific research. Existing methods did not meet our needs. We adapted the LZW compression algorithm into a new method and designed parameters to allow customization for varying data and research needs. This resulted in the Bloatectomy package which identifies duplicate sentences in unstructured healthcare notes (or other documents), marks them for manual review, and removes them for statistical analysis. The package allows for a high level of customization in the length and type of duplications (via regular expressions) and could also be used for plagiarism detection or other text pre-processing requirements for natural language processing (NLP). The Bloatectomy method works, is available for use, and can be adapted for other settings.
 
 ![Graphical Abstract.  ](graph_abstract.png)
 
