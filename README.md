@@ -1,5 +1,5 @@
 # Bloatectomy
-Bloatectomy: a method for the identification and removal of duplicate text in the bloated notes of electronic health records and other documents. Takes in a list of notes or a single file (.docx, .txt, .rtf, etc) or single string to be marked for duplicates. Marked output and tokens are output.
+Bloatectomy: a method for the identification and removal of duplicate text in the bloated notes of electronic health records and other documents. Takes in a list of notes or a single file (.docx, .txt, .rtf, etc) or single string to be marked for duplicates which can then be highlighted, bolded, or removed. Marked output and tokens are output.
 
 # Requirements
 - Python>=3.7.x (in order for the regular expressions to work correctly)
