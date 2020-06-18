@@ -31,11 +31,7 @@ python3 setup.py install
 ```
 
 # Examples
-To run bloatectomy on a sample string with the following options:
-- highlighting duplicates
-- display raw results
-- output file as html
-- output file of numbered tokens:
+To run bloatectomy on a sample string default parameters:
 
 ```
 from bloatectomy import bloatectomy
@@ -49,15 +45,15 @@ ICU Care
 Assessment and Plan
 '''
 
-bloatectomy(text, style='highlight', display=True, filename='sample_txt_highlight_output', output='html', output_numbered_tokens=True)
+bloatectomy(text, style='highlight')
 ```
-To use with example text or load ipynb examples, download the repository or just the bloatectomy_examples folder
+To use with example text or load ipynb examples, download the repository or just the bloatectomy_examples folder. This example displays the result in the console, specifies the location and name of the output (`filename=`), and outputs the numbered tokens (useful for dissecting how the text is tokenized).
 ```
 cd bloatectomy_examples
 from bloatectomy import bloatectomy
 
 bloatectomy('./input/sample_text.txt',
-            style='highlight', display=False,
+            style='highlight', display=True,
             filename='./output/sample_txt_highlight_output',
             output='html',
             output_numbered_tokens=True,
@@ -65,7 +61,6 @@ bloatectomy('./input/sample_text.txt',
 ```
 
 # Documentation
-The paper is located at TBA
 
 ```
 class bloatectomy(input_text,
