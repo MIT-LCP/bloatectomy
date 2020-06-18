@@ -1,0 +1,12 @@
+0$ Assessment and Plan
+1$ 61 yo male Hep C cirrhosis and HCC presents with probable lower GIB and renal failure of unclear duration.
+2$ Abd pain:
+3$ -other labs: PT / PTT / INR:16.6//                         1.5, CK / CKMB /
+4$ Troponin-T:4390/40/0.21, ALT / AST:258/575, Alk Phos / T Bili:232/5.9,
+5$ ICU Care
+6$ <mark>-other labs: PT / PTT / INR:16.6//                         1.5, CK / CKMB /</mark>
+7$ Communication:                                              Comments: icu Care
+8$ <mark>Assessment and Plan</mark>
+9$ Chief Complaint:
+10$ <mark>61 yo male Hep C cirrhosis and HCC presents with probable lower GIB and renal failure of unclear duration.</mark>
+11$ <mark>Abd pain:</mark>

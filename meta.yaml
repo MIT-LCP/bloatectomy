@@ -1,0 +1,44 @@
+{% set name = "bloatectomy" %}
+{% set version = "0.0.11" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: d9df69119581a5266058b9270d8851350c394cc28248f3eb9e3347445d68abdb
+  MD5: 65d618851c2584be59847a67dd468dbb
+  BLAKE2-256: 1309f91e59e3f5e7e800f5c204fe1c9442472ba1d667e527b859d6e46c631d4f
+
+build:
+  script: "{{ PYTHON }} -m pip install . -vv"
+  skip: true  # [py<37]
+
+requirements:
+  host:
+    - pip
+    - setuptools
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - bloatectomy
+  source_files:
+    - tests
+
+about:
+  home: "https://github.com/MIT-LCP/mimic-code"
+  license: GPL-3.0-or-later
+  license_family: GPL3
+  license_file: LICENSE.txt
+  summary: "Bloatectomy: a method for the identification and removal of duplicate text in the bloated notes of electronic health records and other documents."
+  doc_url:
+  dev_url:
+
+extra:
+  recipe-maintainers:
+    - 1fmusic
+    - katerdowdy

@@ -1,0 +1,8 @@
+* text=auto
+*.txt text
+*.py text
+*.ipynb text
+*.c text
+*.h text
+*.jpg binary
+*.png binary
