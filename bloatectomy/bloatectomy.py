@@ -3,6 +3,7 @@
 
 #Bloatectomy: a method for the identification and removal of duplicate text in the bloated notes of electronic health records and other documents.
 #Copyright (C) 2020  Summer K. Rankin, Roselie A. Bright, Katherine R. Dowdy
+
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 3 of the License, or
