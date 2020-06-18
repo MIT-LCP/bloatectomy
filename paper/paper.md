@@ -26,7 +26,7 @@ affiliations:
 date: 1 June 2020
 bibliography: paper.bib
 ---  
-
+url: https://github.com/MIT-LCP/bloatectomy
 *corresponding author
 The authors are listed in order of contributions to the work and manuscript.
 
@@ -362,6 +362,6 @@ The authors have declared that no competing interests exist.
 The statements made in this article are not necessarily the official policy of the Food and Drug Administration.
 
 # Data
-All data for the development of this tool are located at the MIMIC-III website https://mimic.physionet.org. The code is located at https://github.com/MIT-LCP/mimic-code
+All data for the development of this tool are located at the MIMIC-III website https://mimic.physionet.org. The code is located at https://github.com/MIT-LCP/bloatectomy
 
 # References

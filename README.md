@@ -21,11 +21,11 @@ python3 -m pip install bloatectomy
 ```
 using pip via github
 ```
-python3 -m pip install git+git://github.com/MIT-LCP/mimic-code TBA
+python3 -m pip install git+git://github.com/MIT-LCP/bloatectomy
 ```
 manual install by cloning the repository
 ```
-git clone git://github.com/MIT-LCP/mimic-code TBA
+git clone git://github.com/MIT-LCP/bloatectomy
 cd bloatectomy
 python3 setup.py install
 ```

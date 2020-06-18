@@ -11,7 +11,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="bloatectomy", # Replace with your own username
-    version="0.0.11",
+    version="0.0.12",
     author="Summer Rankin, Roselie Bright, Katherine Dowdy",
     author_email="summerKRankin@gmail.com",
     description="Bloatectomy: a method for the identification and removal of duplicate text in the bloated notes of electronic health records and other documents.",

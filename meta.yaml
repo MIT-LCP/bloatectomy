@@ -1,5 +1,5 @@
 {% set name = "bloatectomy" %}
-{% set version = "0.0.11" %}
+{% set version = "0.0.12" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,9 +7,9 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: d9df69119581a5266058b9270d8851350c394cc28248f3eb9e3347445d68abdb
-  MD5: 65d618851c2584be59847a67dd468dbb
-  BLAKE2-256: 1309f91e59e3f5e7e800f5c204fe1c9442472ba1d667e527b859d6e46c631d4f
+  sha256: 4f84db2264a3e337b13bde94c1154e1e46f9efaa3c501b26b5ee67f095f73363
+  MD5: 70c8f9c9b0bab52544cda810b2d4f89c
+  BLAKE2-256: c0371a9565a8d7693c8219e5419830939f0e1f06711d4da7baf86f71418a069f
 
 build:
   script: "{{ PYTHON }} -m pip install . -vv"
@@ -30,7 +30,7 @@ test:
     - tests
 
 about:
-  home: "https://github.com/MIT-LCP/mimic-code"
+  home: "https://github.com/MIT-LCP/bloatectomy"
   license: GPL-3.0-or-later
   license_family: GPL3
   license_file: LICENSE.txt
