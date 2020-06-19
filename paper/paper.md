@@ -9,6 +9,7 @@ tags:
   - clinical information extraction
   - health informatics
   - natural language processing
+  - data augmentation
 authors:
   -  name: Summer K. Rankin*
      orcid: 0000-0002-6886-3983
@@ -19,7 +20,7 @@ authors:
   -  name: Katherine Dowdy
      affiliation: "1"
 affiliations:
- - name: Booz Allen Hamilton, McLean, VA, USA
+ - name: Booz Allen Hamilton, McLean, VA, USA rankin_summer@bah.com
    index: "1"
  - name: Office of Health Informatics, Office of the Chief Scientist, Office of the Commissioner, U.S. Food and Drug Administration, 10903 New Hampshire Avenue, Silver Spring, MD, USA 20993-0002 roselie.bright@fda.hhs.gov.
    index: "2"
@@ -32,7 +33,7 @@ The authors are listed in order of contributions to the work and manuscript.
 
 
 # Summary
-Duplicated sentences (“note bloat”) in unstructured electronic healthcare records hamper scientific research. Existing methods did not meet our needs. We adapted the LZW compression algorithm into a new method and designed parameters to allow customization for varying data and research needs. This resulted in the Bloatectomy package which identifies duplicate sentences in unstructured healthcare notes (or other documents), marks them for manual review, and removes them for statistical analysis. The package allows for a high level of customization in the length and type of duplications (via regular expressions) and could also be used for plagiarism detection or other text pre-processing requirements for natural language processing (NLP). The Bloatectomy method works, is available for use, and can be adapted for other settings.
+Duplicated sentences (“note bloat”) in unstructured electronic healthcare records hamper scientific research. Existing methods did not meet our needs. We adapted the LZW compression algorithm into a new method and designed parameters to allow customization for varying data and research needs. This resulted in the Bloatectomy package which identifies duplicate sentences in unstructured healthcare notes (or other documents), marks them for manual review, and removes them for statistical analysis. The package allows for a high level of customization in the length and type of duplications (via regular expressions) and could also be used for plagiarism detection or other text pre-processing requirements for natural language processing (NLP). The Bloatectomy package works, is available for use, and can be adapted for other settings.
 
 ![Graphical Abstract.  ](graph_abstract.png)
 
@@ -47,7 +48,7 @@ Most notes were made by physicians (attending, radiology, consulting) and CCU nu
 
 This type of duplication has been noticed in other health care settings [reviewed in @Dean:2018]. The duplications distort statistical analyses of terms used and hamper manual review of the notes for changes in patient care and status. Removing these duplicated notes allows us to use a wide variety of statistical methods without concern for the weights introduced by duplicates.
 
-For example, if we are using a simple frequency (count) vectorization method, the more times a word appears, the more important it is in the analysis. Furthermore, as length of stay increases, the burden of duplicates also increases, which inflates the importance of, for example, admission comments. Artificial repeats (copies) of text will artificially inflate the importance of the repeated words or phrases [@Cohen:2013]. Though existing methods can weight words (i.e., term-frequency x inverse document frequency [TF-IDF]), for this dataset these methods did not yield satisfactory results.
+For example, if we are using a simple frequency (count) vectorization method, the more times a word appears, the more important it is in the analysis. Furthermore, as length of stay increases, the burden of duplicates also increases, which inflates the importance of, for example, admission comments. Artificial repeats (copies) of text will artificially inflate the importance of the repeated words or phrases [@Cohen:2013]. Though existing methods can weight words (i.e., term-frequency x inverse document frequency (TF-IDF)), for this dataset these methods did not yield satisfactory results.
 
 Our goal was to identify duplicated sections to aid manual review and to delete them from statistical processes. We developed criteria for the tool that were based on the clinical setting and our desire to keep all new clinical information. Specifically:
 
@@ -63,10 +64,14 @@ Our goal was to identify duplicated sections to aid manual review and to delete 
     b.	Statistical analyses
 
 
-We evaluated existing available tools and strategies.
+We evaluated existing available tools and strategies:
+
 - Plagiarism tools typically compare documents and stop after finding the first instance of duplicate text [@Su:2008; @copyfind; @Ceglarek:2013]; some also appropriately account for paraphrasing. Some other duplication detection methods [@Thielke:2007; @Wrenn:2010] rely on the Bloomfield plagiarism tool. We focused on concepts at the sentence level because word meaning depends on its immediate sentence and paragraph, regardless of where it appears in the note. Genetic and protein sequence comparators also finish after finding similar sequences [@Altschul:1990]. We wanted to find exact duplicates and every instance of them.
+
 - Some existing EHR deduplication methods have been applied only to the discharge note [@Cohen:2013]. Unfortunately, the discharge notes in MIMIC III are not comprehensive accounts of all observations and treatments that may be key to specific research questions; for example, blood transfusions are sometimes noted in coded data or nursing notes yet were absent from the discharge summary.
+
 - Fingerprinting identifies redundant entire notes based on similarity [@Cohen:2013], but it finds inexact duplicates (which could be clinically different in some way). Also, we wanted to identify duplicate concepts within notes even if some other parts of the note were original.
+
 - Clustering entire notes, and then looking for entire and near duplicate pairs of notes within clusters [@Gabriel:2018] works only on entire notes. We wanted to detect duplicate sentences and lists within notes, even if new material existed among the duplicates.
 - Detecting duplicates through topic modeling, an unsupervised and unreplicable [@Lancichinetti:2015] method of clustering related words and expressions within documents, [@Cohen:2014] involved comparing two simplifications that did not fit our needs
     - Selection and use of a best note within the admission. We found that crucial clinical information was missing from any one best note in an admission.
