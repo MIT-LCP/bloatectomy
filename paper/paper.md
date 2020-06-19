@@ -118,10 +118,10 @@ At this point, we have two tokens because there are two periods followed by a li
 
 | Token Number    | Token     |
 | :------------- | :------------- |
-| 1       | No CP.       |
-| 2       |Became tachycardic to 160s on dopa. |
-| 3 | No CP.       |
-|4 | \nTmax: 36.6\nC (97.8\nHR: 100 (97 - 166) bpm\nTmax: 36.6\nC (97.8 |
+| 1       | ```No CP.```       |
+| 2       |```Became tachycardic to 160s on dopa.``` |
+| 3 | ```No CP.```       |
+|4 | ```\nTmax: 36.6\nC (97.8\nHR: 100 (97 - 166) bpm\nTmax: 36.6\nC (97.8 ```|
 
 
 
