@@ -20,7 +20,7 @@ authors:
   -  name: Katherine Dowdy
      affiliation: "1"
 affiliations:
- - name: Booz Allen Hamilton, McLean, VA, USA rankin_summer@bah.com
+ - name: Booz Allen Hamilton, McLean, VA, USA rankin\_summer@bah.com
    index: "1"
  - name: Office of Health Informatics, Office of the Chief Scientist, Office of the Commissioner, U.S. Food and Drug Administration, 10903 New Hampshire Avenue, Silver Spring, MD, USA 20993-0002 roselie.bright@fda.hhs.gov.
    index: "2"
@@ -73,9 +73,11 @@ We evaluated existing available tools and strategies:
 - Fingerprinting identifies redundant entire notes based on similarity [@Cohen:2013], but it finds inexact duplicates (which could be clinically different in some way). Also, we wanted to identify duplicate concepts within notes even if some other parts of the note were original.
 
 - Clustering entire notes, and then looking for entire and near duplicate pairs of notes within clusters [@Gabriel:2018] works only on entire notes. We wanted to detect duplicate sentences and lists within notes, even if new material existed among the duplicates.
+
 - Detecting duplicates through topic modeling, an unsupervised and unreplicable [@Lancichinetti:2015] method of clustering related words and expressions within documents, [@Cohen:2014] involved comparing two simplifications that did not fit our needs
     - Selection and use of a best note within the admission. We found that crucial clinical information was missing from any one best note in an admission.
     - Selection of the one source note, the longest one, in the admission.  We found that in MIMIC III, there is no single source note in an admission.
+    
 - Sliding windows [@Zhang:2011], similar to frameshifting in other fields, were a possibility if we adapted them to sentences and lists. We believe our method is simpler to implement.
 
 
@@ -90,6 +92,7 @@ In Natural Language Processing (NLP), we refer to a unit of text as a document. 
 ## Code and Example
 The Bloatectomy (v.2.1) tool can be found in the python package ``bloatectomy.py``. The MIMIC-III database was stored in a PostgreSQL (v.9.4) database. The Bloatectomy tool was written using only Python 3 (v.3.7.3) [@python3]. No other libraries are needed to identify duplicate text. An option to ingest or output a word document requires the python-docx library.
 The Bloatectomy method is as follows:
+
 1.	Create sentence tokens.
 2.	Create list tokens.
 3.	Assign either new or old hash number.
@@ -99,6 +102,7 @@ The Bloatectomy method is as follows:
 
 ### Create Sentence Tokens
 First, we tokenized (separated) an admission's concatenated notes (a single document) based on the presence of:
+
 - a period (```.```) followed by one or more
   - white space characters (space, tab, line break) or 
   - line feed character ```\n```.  
@@ -132,10 +136,11 @@ At this point, we have two tokens because there are two periods followed by a li
 
 ### Create List Token
 Next, each token is examined and split again if it contains a line feed character followed by one or more:
+
 - Upper case character
 - Digit
-- En dash (-)
-- Number sign (#)  
+- En dash (```-```)
+- Number sign (```#```)  
 
 Using our sample text, token 4 is split into several new tokens, which are then inserted into our token list. If a token does not need to be split further, it is added to our list as-is. The regular expression for the split described in \autoref{regex2}. This regular expression can be changed by passing any valid regular expression for the `regex2` parameter.
 
@@ -175,7 +180,9 @@ Specifically, token 4 becomes 5 new tokens:
 
 ### Assign Either New or Old Hash Number
 Next, we create a dynamic set structure that accepts tokens one at a time. The function is a generator that yields one token at a time; when the output is stored as a list, the original order of tokens is maintained while providing the flexibility to either remove or mark (highlight, bold) a duplicate token.
+
 As each token is passed through the loop, one of two outcomes will result:
+
 1.	If the token is not in the dynamic set, it will be added to the set, and the token is yielded as-is.
 2.	If the token is already contained in the set, it is NOT added to the set; HTML tags are added to the token, yielding a marked token. If we want to remove the token, nothing is yielded at this step.
 
@@ -246,12 +253,14 @@ bloatectomy(text, style='remov'))
 
 ## Parameter Adjustments
 We incorporated parameters that users can set to fit the features of the documents they are using. The following input types can be used:
+
 1.	Plain text files (.txt, .rtf)
 2.	Word documents (.docx)
 3.	A variable containing a string of raw text
 4.	A list of HADM_ID values for a PostgreSQL database (specific to MIMIC III database)
 
 The following output types are available:
+
 1.	HTML file (.html)
 2.	Word document (.docx)
 3.	Print the text to the console
@@ -259,6 +268,7 @@ The following output types are available:
 5.	Numbered tokens after duplication detection (.txt)  
 
 The duplicates can be marked using:
+
 1. highlighting
 2. bold
 3. remove
