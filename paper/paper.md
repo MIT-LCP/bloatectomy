@@ -355,6 +355,14 @@ bloatectomy('./input/sample_text.docx',
             filename='./output/sample_docx_output')
 ```
 
+This example takes in an .rtf file and exports a word document with duplicates removed. 
+```
+bloatectomy('./input/sample_text.rtf',
+            style='remov',
+            output='docx',
+            filename='./output/sample_docx_output')
+```
+
 ## Parameters  
 ```
 class bloatectomy(input_text,
