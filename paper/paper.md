@@ -28,7 +28,9 @@ date: 1 June 2020
 bibliography: paper.bib
 ---  
 url: https://github.com/MIT-LCP/bloatectomy  
-*corresponding author. 
+pypi: https://pypi.org/project/bloatectomy/
+anaconda: https://anaconda.org/summerkrankin/bloatectomy  
+*corresponding author.  
 The authors are listed in order of contributions to the work and manuscript.
 
 
