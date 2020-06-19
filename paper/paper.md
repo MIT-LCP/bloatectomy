@@ -94,9 +94,9 @@ The Bloatectomy method is as follows:
 
 ### Create Sentence Tokens
 First, we tokenized (separated) an admission's concatenated notes (a single document) based on the presence of:
-- a period ( . ) followed by one or more
-    white space characters (space, tab, line breaks) or a
-    line feed character (\n).  
+- a period (```.```) followed by one or more
+  - white space characters (space, tab, line break) or 
+  - line feed character ```\n```.  
 
 An example of the text seen in an EHR looks like the following:
 ```No CP. Became tachycardic to 160s on dopa. No CP.
@@ -208,7 +208,7 @@ The token table essentially becomes the following hash table of tokens:
 
 
 ### Use the Hash Table of Tokens
-The output is a document with a list of our original tokens with highlight formatting marks around the duplicates. The user can choose to highlight, bold, or remove duplicates by setting the ``style`` argument.
+The output is a document with a list of our original tokens with highlight formatting marks around the duplicates. The user can choose to highlight, bold, or remove duplicates by setting the ```style``` argument.
 
 ```
 import bloatectomy from bloatectomy
@@ -232,7 +232,7 @@ uniq = str("\n".join(text))
 ```
 The final output contains three highlighted duplicate tokens:
 
-![Marked output for the example text.  ](example_output.png)
+![Marked output from the example text.  ](example_output.png)
 
 The marked text can be deleted for statistical analyses.
 ```
@@ -272,27 +272,22 @@ We accepted some error in favor of simplicity and our reluctance to over-customi
 
 Bloatectomy is an effective tool for identifying duplicate text in EHRs and would be useful for other types of documents with multiple instances of duplicate sentences or paragraphs.
 
-# Summary
-Duplicated sentences (“note bloat”) in unstructured electronic healthcare records hamper scientific research.  
-Existing methods did not meet our needs.  
-We adapted the LZW compression algorithm into a new method and designed parameters to allow customization for varying data and research needs.  
-The Bloatectomy method works, is available for use, and can be adapted for other settings.  
-
-# Sample Text
-To run bloatectomy on the sample text, use this in python 3.7.x or higher
+# Example
+To run bloatectomy on the sample text (located in the repository, bloatectomy_examples directory) use this in python 3.7.x or higher.
 
 ```
 from bloatectomy import bloatectomy
 
-bloatectomy('sample_text.txt',
-             filename='sampletxt_output',
+bloatectomy('./input/sample_text.txt',
+             filename='./output/sampletxt_output',
              display=False,
              style='highlight',
              output='html',
              output_numbered_tokens=True,
              output_original_tokens=True )
+             
 ```
-This takes in the single text file (i.e., sample_text.txt) to be marked for duplicates. The marked output, original numbered tokens and marked numbered tokens can be output. Note that the tokens in the two numbered token files will have the same token numbers unless style='remov'.
+This takes in the single text file (i.e., sample_text.txt) to be marked for duplicates. The marked output, original numbered tokens and marked numbered tokens can be output. Note that the tokens in the two numbered token files will have the same token numbers unless they style parameter is set to "remov" ```style='remov'```.
 
 ## Parameters  
 ```
@@ -332,10 +327,10 @@ If set to  `True`, a .txt file with each original (non-marked) token enumerated 
 If set to `True`, the bloatectomized text will display in the console on completion.
 
 **regex1**: str, optional, default=`r"(.+?\.[\s\n]+)"`  
-The regular expression for the first tokenization. Split on a period (.) followed by one or more white space characters (space, tab, line breaks) or a line feed character (\n). This can be replaced with any valid regular expression to change the way tokens are created.
+The regular expression for the first tokenization. Split on a period (.) followed by one or more white space characters (space, tab, line breaks) or a line feed character. This can be replaced with any valid regular expression to change the way tokens are created.
 
 **regex2**: str, optional, default=`r"(?=\n\s*[A-Z1-9#-]+.*)"`  
-The regular expression for the second tokenization. Split on any newline character (\n) followed by an uppercase letter, a number, or a dash. This can be replaced with any valid regular expression to change how sub-tokens are created.
+The regular expression for the second tokenization. Split on any line feed character followed by an uppercase letter, a number, or a dash. This can be replaced with any valid regular expression to change how sub-tokens are created.
 
 **postgres_engine**: str, optional
 The postgres connection. Only relevant for use with the MIMIC III dataset. See the jupyter notebook [mimic_bloatectomy_example](../bloatectomy_examples/mimic_ bloatectomy_example.ipynb).
