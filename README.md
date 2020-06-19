@@ -119,28 +119,31 @@ class bloatectomy(input_text,
 An input document (.txt, .rtf, .docx), a string of text, or list of hadm_ids for postgres mimiciii database or the raw text.
 
 **style**: str, optional, default=`highlight`  
-Method for denoting a duplicate. The following are allowed: `highlight`, `bold`, `remov`.
+How to denote a duplicate. The following are allowed: `highlight`, `bold`, `remov`.
+
+**output**: str, optional, default=`html`  
+Type of marked output file as an html or a word document (docx). The following are allowed: `html`, `docx`.
 
 **filename**: str, optional, default=`bloatectomized_file`
-A string to name output file of the bloat-ectomized document.
+A string to name output file of the marked document.
 
 **path**: str, optional, default=`' '`  
 The directory for output files.
 
 **output_numbered_tokens**: bool, optional, default=`False`  
-If set to `True`, a .txt file with each token enumerated and marked for duplication, is output as `[filename]_token_numbers.txt`. This is useful when diagnosing your own regular expression for tokenization or testing the `remov` option for **style**.
+If set to `True`, a .txt file with each token enumerated and marked for duplication is output as `[filename]_token_numbers.txt`. This is useful when diagnosing your own regular expression for tokenization or testing the `remov` option for **style**.
 
 **output_original_tokens**: bool, optional, default=`False`  
-If set to  `True`, a .txt file with each original (non-marked) token enumerated but not marked for duplication, is output as `[filename]_original_token_numbers.txt`.
+If set to  `True`, a .txt file with each original (non-marked) token enumerated but not marked for duplication, is output as `[filename]_original_token_numbers.txt`. This is useful when diagnosing your own regular expression for tokenization or testing the `remov` option for **style**.
 
 **display**: bool, optional, default=`False`  
 If set to `True`, the bloatectomized text will display in the console on completion.
 
 **regex1**: str, optional, default=`r"(.+?\.[\s\n]+)"`  
-The regular expression for the first tokenization. Split on a period (.) followed by one or more white space characters (space, tab, line breaks) or a line feed character (`\n`). This can be replaced with any valid regular expression to change the way tokens are created.
+The regular expression for the first tokenization. Split on a period (.) followed by one or more white space characters (space, tab, line breaks) or a line feed character. This can be replaced with any valid regular expression to change the way tokens are created.
 
 **regex2**: str, optional, default=`r"(?=\n\s*[A-Z1-9#-]+.*)"`  
-The regular expression for the second tokenization. Split on any newline character (`\n`) followed by an uppercase letter, a number, or a dash. This can be replaced with any valid regular expression to change how sub-tokens are created.
+The regular expression for the second tokenization. Split on any line feed character followed by an uppercase letter, a number, or a dash. This can be replaced with any valid regular expression to change how sub-tokens are created.
 
 **postgres_engine**: str, optional
 The postgres connection. Only relevant for use with the MIMIC III dataset. When data is pulled from postgres the hadm_id of the file will be appended to the `filename` if set or the default `bloatectomized_file`. See the jupyter notebook [mimic_bloatectomy_example](./bloatectomy_examples/mimic_bloatectomy_example.ipynb) for the example code.
