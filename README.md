@@ -31,12 +31,13 @@ python3 setup.py install
 ```
 
 # Examples
-To run bloatectomy on a sample string default parameters:
 
+To use with example text or load ipynb examples, download the repository or just the bloatectomy_examples folder. 
+This is the simplest use with default parameters. We only specify the type of marking and the type of output.
 ```
 from bloatectomy import bloatectomy
 
-text = '''Assessment and Plan
+text = ''Assessment and Plan
 61 yo male Hep C cirrhosis
 Abd pain:
 -other labs: PT / PTT / INR:16.6//    1.5, CK / CKMB /
@@ -45,19 +46,56 @@ ICU Care
 Assessment and Plan
 '''
 
-bloatectomy(text, style='highlight')
+bloatectomy(text)
 ```
-To use with example text or load ipynb examples, download the repository or just the bloatectomy_examples folder. This example displays the result in the console, specifies the location and name of the output (`filename=`), and outputs the numbered tokens (useful for dissecting how the text is tokenized).
-```
-cd bloatectomy_examples
-from bloatectomy import bloatectomy
 
-bloatectomy('./input/sample_text.txt',
-            style='highlight', display=True,
-            filename='./output/sample_txt_highlight_output',
+This example highlights duplicates and creates an html, displays the result in the console, specifies the location and name of the output (`filename=`).
+
+```
+bloatectomy('text', 
+            style='highlight',
+            display=True,
+            filename='./output/sample_txt_output',
+            output='html')
+```
+
+This example removes duplicates and creates an html, displays the result in the console, specifies the location and name of the output (`filename=`), and exports the numbered tokens (useful for dissecting how the text is tokenized). 
+
+```
+bloatectomy('text', 
+            style='remov',
+            display=True,
+            filename='./output/sample_txt_remov_output',
             output='html',
             output_numbered_tokens=True,
             output_original_tokens=True)
+```
+
+This example takes in the single text file (i.e., sample_text.txt) to be marked for duplicates. The marked output, original numbered tokens and marked numbered tokens are exported. Note that the tokens in the two numbered token files will have the same token numbers unless they style parameter is set to "remov" ```style='remov'```.
+
+```
+bloatectomy('./input/sample_text.txt',
+             filename='./output/sampletxt_output',
+             style='highlight',
+             output='html',
+             output_numbered_tokens=True,
+             output_original_tokens=True )
+```
+
+This example takes in and exports a word document and marks duplicates in bold. 
+```
+bloatectomy('./input/sample_text.docx',
+            style='bold',
+            output='docx',
+            filename='./output/sample_docx_output')
+```
+
+This example takes in an .rtf file and exports a word document with duplicates removed. 
+```
+bloatectomy('./input/sample_text.rtf',
+            style='remov',
+            output='docx',
+            filename='./output/sample_docx_output')
 ```
 
 # Documentation
