@@ -272,6 +272,29 @@ We accepted some error in favor of simplicity and our reluctance to over-customi
 
 Bloatectomy is an effective tool for identifying duplicate text in EHRs and would be useful for other types of documents with multiple instances of duplicate sentences or paragraphs.
 
+# Installation
+
+Anaconda or miniconda
+```
+conda install -c summerkrankin bloatectomy
+```
+
+pip install via PyPI  
+make sure to install it to python3 if your default is python2
+```
+python3 -m pip install bloatectomy
+```
+using pip via github
+```
+python3 -m pip install git+git://github.com/MIT-LCP/bloatectomy
+```
+manual install by cloning the repository
+```
+git clone git://github.com/MIT-LCP/bloatectomy
+cd bloatectomy
+python3 setup.py install
+```
+
 # Example
 To run bloatectomy on the sample text (located in the repository, bloatectomy_examples directory) use this in python 3.7.x or higher.
 
@@ -353,6 +376,6 @@ The authors have declared that no competing interests exist.
 The statements made in this article are not necessarily the official policy of the Food and Drug Administration.
 
 # Data
-All data for the development of this tool are located at the MIMIC-III website https://mimic.physionet.org. The code is located at https://github.com/MIT-LCP/bloatectomy
+All data for the development of this tool are located at the MIMIC-III website https://mimic.physionet.org. The code is located at https://github.com/MIT-LCP/bloatectomy. 
 
 # References
