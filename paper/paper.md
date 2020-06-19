@@ -295,12 +295,34 @@ cd bloatectomy
 python3 setup.py install
 ```
 
-# Example
-To run bloatectomy on the sample text (located in the repository, bloatectomy_examples directory) use this in python 3.7.x or higher.
+# Examples
 
+To use with example text or load ipynb examples, download the repository or just the bloatectomy_examples folder. 
+This is the simplest use with default parameters. We only specify the type of marking and the type of output.
 ```
 from bloatectomy import bloatectomy
 
+text = ''Assessment and Plan
+61 yo male Hep C cirrhosis
+Abd pain:
+-other labs: PT / PTT / INR:16.6//    1.5, CK / CKMB /
+ICU Care
+-other labs: PT / PTT / INR:16.6//    1.5, CK / CKMB /
+Assessment and Plan
+'''
+
+bloatectomy(text)
+```
+
+This example highlights duplicates and creates an html, displays the result in the console, specifies the location and name of the output (`filename=`), and exports the numbered tokens (useful for dissecting how the text is tokenized).
+
+```
+bloatectomy('text.txt', style='highlight', display=True, filename='./output/sample_txt_output', output='html', output_numbered_tokens=True, output_original_tokens=True)
+```
+
+This example takes in the single text file (i.e., sample_text.txt) to be marked for duplicates. The marked output, original numbered tokens and marked numbered tokens are exported. Note that the tokens in the two numbered token files will have the same token numbers unless they style parameter is set to "remov" ```style='remov'```.
+
+```
 bloatectomy('./input/sample_text.txt',
              filename='./output/sampletxt_output',
              display=False,
@@ -308,9 +330,12 @@ bloatectomy('./input/sample_text.txt',
              output='html',
              output_numbered_tokens=True,
              output_original_tokens=True )
-             
 ```
-This takes in the single text file (i.e., sample_text.txt) to be marked for duplicates. The marked output, original numbered tokens and marked numbered tokens can be output. Note that the tokens in the two numbered token files will have the same token numbers unless they style parameter is set to "remov" ```style='remov'```.
+
+This example takes in and exports a word document and marks duplicates in bold. 
+```
+bloatectomy('./input/sample_text.docx', style='bold', display=False, filename='./output/sample_docx_output', output='docx')
+```
 
 ## Parameters  
 ```
@@ -332,19 +357,22 @@ class bloatectomy(input_text,
 An input document (.txt, .rtf, .docx), a string of text, or list of hadm_ids for postgres mimiciii database or the raw text.
 
 **style**: str, optional, default=`highlight`  
-Method for denoting a duplicate. The following are allowed: `highlight`, `bold`, `remov`.
+How to denote a duplicate. The following are allowed: `highlight`, `bold`, `remov`.
+
+**output**: str, optional, default=`html`  
+Type of marked output file as an html or a word document (docx). The following are allowed: `html`, `docx`.
 
 **filename**: str, optional, default=`bloatectomized_file`
-A string to name output file of the bloat-ectomized document.
+A string to name output file of the marked document.
 
 **path**: str, optional, default=`' '`  
 The directory for output files.
 
 **output_numbered_tokens**: bool, optional, default=`False`  
-If set to `True`, a .txt file with each token enumerated and marked for duplication, is output as `[filename]_token_numbers.txt`. This is useful when diagnosing your own regular expression for tokenization or testing the `remov` option for **style**.
+If set to `True`, a .txt file with each token enumerated and marked for duplication is output as `[filename]_token_numbers.txt`. This is useful when diagnosing your own regular expression for tokenization or testing the `remov` option for **style**.
 
 **output_original_tokens**: bool, optional, default=`False`  
-If set to  `True`, a .txt file with each original (non-marked) token enumerated but not marked for duplication, is output as `[filename]_original_token_numbers.txt`.
+If set to  `True`, a .txt file with each original (non-marked) token enumerated but not marked for duplication, is output as `[filename]_original_token_numbers.txt`. This is useful when diagnosing your own regular expression for tokenization or testing the `remov` option for **style**.
 
 **display**: bool, optional, default=`False`  
 If set to `True`, the bloatectomized text will display in the console on completion.
