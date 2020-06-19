@@ -217,14 +217,14 @@ bloatectomy(text, style='highlight'))
 
 | Token Number    | Token     |
 | :------------- | :------------- |
-| 1       | No CP.       |
-| 2       |Became tachycardic to 160s on dopa. |
-|  duplicate | <mark>No CP.</mark>       |
-|4 | Tmax: 36.6 |
-| 5 | C (97.8 |
-|6 | HR: 100 (97 - 166) bpm |
-|duplicate | <mark>Tmax: 36.6</mark> |
-|duplicate | <mark>C (97.8</mark> |
+| 1       | ```No CP.```       |
+| 2       |```Became tachycardic to 160s on dopa.``` |
+|  duplicate | ```<mark>No CP.</mark>```       |
+|4 | ```Tmax: 36.6``` |
+| 5 | ```C (97.8``` |
+|6 | ```HR: 100 (97 - 166) bpm``` |
+|duplicate | ```<mark>Tmax: 36.6</mark>``` |
+|duplicate | ```<mark>C (97.8</mark>``` |
 
 Last, we concatenate this marked (or de-duplicated) set of tokens together to create a document of original sentences. A line feed is placed between each token for ease of viewing (due to removing the line feed characters at the beginning and end of each token). How this is executed depends on the type of output (e.g., docx, HTML).
 ```
