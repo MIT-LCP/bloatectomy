@@ -110,6 +110,7 @@ First, we tokenized (separated) an admission's concatenated notes (a single docu
   - line feed character ```\n```.  
 
 An example of the text seen in an EHR looks like the following:
+
 ```No CP. Became tachycardic to 160s on dopa. No CP.
 Tmax: 36.6
 C (97.8
@@ -119,9 +120,11 @@ C (97.8
 ```
 
 The plain text—i.e., only the characters used to represent the text—looks like the following:
+
 ```
 No CP. Became tachycardic to 160s on dopa. No CP.\nTmax: 36.6\nC (97.8\nHR: 100 (97 - 166) bpm\nTmax: 36.6\nC (97.8
 ```
+
 The first tokenization was accomplished using a regular expression \autoref{regex1} in python (v.3.7.3) using the `re` (regular expression) library. This regular expression can be changed by passing any valid regular expression for the `regex1` parameter.
 ![The regular expression used for the first tokenization.\label{regex1}](regex1.png)
 
@@ -241,14 +244,17 @@ bloatectomy(text, style='highlight'))
 |duplicate | ```<mark>C (97.8</mark>``` |
 
 Last, we concatenate this marked (or de-duplicated) set of tokens together to create a document of original sentences. A line feed is placed between each token for ease of viewing (due to removing the line feed characters at the beginning and end of each token). How this is executed depends on the type of output (e.g., docx, HTML).
+
 ```
 uniq = str("\n".join(text))
 ```
-The final output contains three highlighted duplicate tokens:
+
+The final output contains three highlighted duplicate tokens:  
 
 ![Marked output from the example text.  ](example_output.png)
 
-The marked text can be deleted for statistical analyses.
+The marked text can be deleted for statistical analyses.  
+
 ```
 bloatectomy(text, style='remov'))
 ```
