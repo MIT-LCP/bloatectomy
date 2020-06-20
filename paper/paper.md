@@ -37,7 +37,7 @@ The authors are listed in order of contributions to the work and manuscript.
 # Summary
 Duplicated sentences (“note bloat”) in unstructured electronic healthcare records hamper scientific research. Existing methods did not meet our needs. We adapted the LZW compression algorithm into a new method and designed parameters to allow customization for varying data and research needs. This resulted in the Bloatectomy package which identifies duplicate sentences in unstructured healthcare notes (or other documents), marks them for manual review, and removes them for statistical analysis. The package allows for a high level of customization in the length and type of duplications (via regular expressions) and could also be used for plagiarism detection or other text pre-processing requirements for natural language processing (NLP). The Bloatectomy package works, is available for use, and can be adapted for other settings.
 
-![Graphical Abstract.  ](graph_abstract.png)
+![Graphical Abstract.](graph_abstract.png)
 
 # Introduction
 The authors are part of a team that is using the text notes in electronic healthcare records (EHRs). Our EHRs are a de-identified hospital critical care data set known as the Medical Information Mart for Intensive Care (MIMIC-III)[@mimiciii; @mimiciiidata; @physionet].
@@ -86,7 +86,7 @@ We evaluated existing available tools and strategies:
 The LZW compression algorithm [@Welch:1984] hashes words by assigning sequential numeric addresses to them. Any word that has been hashed before is assigned the original numeric address. We adapted the method to sentences rather than words because the altered sentences in pasted text also had new meanings. The hashing system allowed us to both highlight pasted sentences in text documents and remove the duplicate sentences during preprocessing for statistical analysis.
 
 # Duplicate Detection
-![High-level flowchart of the Bloatectomy method. ](flowchart.png)
+![High-level flowchart of the Bloatectomy method.](flowchart.png)
 
 ## Document Selection
 In Natural Language Processing (NLP), we refer to a unit of text as a document. In the MIMIC-III database, free-text notes from multiple sources are associated with a patient's admission (HADM_ID). For our analysis, a document consisted of the concatenation of all notes for an admission into one single document in chronological order. Thus, there is one document per admission.
