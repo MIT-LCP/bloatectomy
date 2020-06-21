@@ -35,9 +35,9 @@ The input for Bloatectomy can be a string, or a text file (txt, rtf), or a word 
 
 # Output
 
-- `bloatectomized_file.html` = The default output is the input text with highlighted duplicates in html format, named `bloatectomized_file.html`. The file can be renamed using `filename=`.
-- `[filename]_original_token_numbers.txt` = The numbered tokens of the original input text can be exported as a text file by setting `output_original_tokens=True`. 
-- `[filename]_token_numbers.txt` = The numbered tokens of the marked output can be exported as a text file by setting `output_numbered_tokens=True` (the token numbers of the two files will only differ if the `style='remov'` parameter is set).  
+- **bloatectomized_file.html** = The default output is the input text with highlighted duplicates in html format. The file can be renamed using `filename=`.
+- *[filename]_original_token_numbers.txt* = The numbered tokens of the original input text can be exported as a text file by setting `output_original_tokens=True`. 
+- **[filename]_token_numbers.txt** = The numbered tokens of the marked output can be exported as a text file by setting `output_numbered_tokens=True` (the token numbers of the two files will only differ if the `style='remov'` parameter is set).  
 
 # Examples
 
