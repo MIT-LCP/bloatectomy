@@ -150,3 +150,17 @@ The postgres connection. Only relevant for use with the MIMIC III dataset. When 
 
 **postgres_table**: str, optional
 The name of the postgres table containing the concatenated notes. Only relevant for use with the MIMIC III dataset. When data is pulled from postgres the hadm_id of the file will be appended to the `filename` if set or the default `bloatectomized_file`. See the jupyter notebook [mimic_bloatectomy_example](./bloatectomy_examples/mimic_bloatectomy_example.ipynb) for the example code.
+
+# Contributing
+
+We encourage you to share any additions or changes to our package. To contribute, please:
+
+Fork the repository using the following link: https://github.com/MIT-LCP/bloatectomy/fork. For a background on GitHub forks, see: https://help.github.com/articles/fork-a-repo/
+
+Commit your changes to the forked repository.
+
+Submit a pull request to the MIMIC code repository, using the method described at: https://help.github.com/articles/using-pull-requests/
+
+## License
+
+By committing your code to the Bloatectomy Repository you agree to release the code under the (GNU General Public License v3.0)[LICENSE.txt] in this repository.
