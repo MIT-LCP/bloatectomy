@@ -164,3 +164,7 @@ Submit a pull request to the MIMIC code repository, using the method described a
 ## License
 
 By committing your code to the Bloatectomy Repository you agree to release the code under the [GNU General Public License v3.0](LICENSE.txt) in this repository.
+
+## Issues or Bugs
+
+Please feel free to create an issue for any questions, bugs, or suggestions you may have about our package or even the documentation (i.e. additional examples). We appreciate any feedback. 
