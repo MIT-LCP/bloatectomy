@@ -35,16 +35,16 @@ bibliography: paper.bib
 # Summary
 Duplicated sentences (“note bloat”) in unstructured electronic healthcare records hamper scientific research. Existing methods did not meet our needs. We adapted the LZW compression algorithm into a new method and designed parameters to allow customization for varying data and research needs. This resulted in the Bloatectomy package which identifies duplicate sentences in unstructured healthcare notes (or other documents), marks them for manual review, and removes them for statistical analysis. The package allows for a high level of customization in the length and type of duplications (via regular expressions) and could also be used for plagiarism detection or other text pre-processing requirements for natural language processing (NLP). The Bloatectomy package works, is available for use, and can be adapted for other settings.
 
-![Graphical Abstract.](graph_abstract.png)
+![Figure1: Graphical Abstract.](graph_abstract.png)
 
 # Introduction
 The authors are part of a team that is using the text notes in electronic healthcare records (EHRs). Our EHRs are a de-identified hospital critical care data set known as the Medical Information Mart for Intensive Care (MIMIC-III)[@mimiciii; @mimiciiidata; @physionet].
 
-Most notes were made by physicians (attending, radiology, consulting) and CCU nurses. Most of these notes included sections that were duplicates of earlier notes (written by themselves or another provider) for the same patient’s hospitalization (their admission). Sometimes pasted sections were edited, and then the modified text was duplicated into later notes (see \autoref{notes1} and \autoref{notes2}).
+Most notes were made by physicians (attending, radiology, consulting) and CCU nurses. Most of these notes included sections that were duplicates of earlier notes (written by themselves or another provider) for the same patient’s hospitalization (their admission). Sometimes pasted sections were edited, and then the modified text was duplicated into later notes (see Figure 2 and Figure 3).
 
-![Progressively longer nurse’s notes over one shift. In this figure, we used a manual method to highlight identical sentences with unique colors. The original sentences are in bold font as well. This and similar figures in this document are purposely small and low resolution to provide further patient and provider privacy protection without disturbing our point about duplicate text.\label{notes1}](notes1.png)
+![Figure 2: Progressively longer nurse’s notes over one shift. In this figure, we used a manual method to highlight identical sentences with unique colors. The original sentences are in bold font as well. This and similar figures in this document are purposely small and low resolution to provide further patient and provider privacy protection without disturbing our point about duplicate text.\label{notes1}](notes1.png)
 
-![Example of two physicians’ notes from the same time period. In this figure, we used a manual method to highlight identical sentences with unique colors. The original sentences are in bold font as well.\label{notes2}](notes2.png)
+![Figure 3: Example of two physicians’ notes from the same time period. In this figure, we used a manual method to highlight identical sentences with unique colors. The original sentences are in bold font as well.\label{notes2}](notes2.png)
 
 This type of duplication has been noticed in other health care settings [reviewed in @Dean:2018]. The duplications distort statistical analyses of terms used and hamper manual review of the notes for changes in patient care and status. Removing these duplicated notes allows us to use a wide variety of statistical methods without concern for the weights introduced by duplicates.
 
@@ -84,7 +84,7 @@ We evaluated existing available tools and strategies:
 The LZW compression algorithm [@Welch:1984] hashes words by assigning sequential numeric addresses to them. Any word that has been hashed before is assigned the original numeric address. We adapted the method to sentences rather than words because the altered sentences in pasted text also had new meanings. The hashing system allowed us to both highlight pasted sentences in text documents and remove the duplicate sentences during preprocessing for statistical analysis.
 
 # Duplicate Detection
-![High-level flowchart of the Bloatectomy method.](flowchart.png)
+![Figure 4: High-level flowchart of the Bloatectomy method.](flowchart.png)
 
 ## Document Selection
 In Natural Language Processing (NLP), we refer to a unit of text as a document. In the MIMIC-III database, free-text notes from multiple sources are associated with a patient's admission (HADM_ID). For our analysis, a document consisted of the concatenation of all notes for an admission into one single document in chronological order. Thus, there is one document per admission.
@@ -124,7 +124,7 @@ No CP. Became tachycardic to 160s on dopa. No CP.\nTmax: 36.6\nC (97.8\nHR: 100 
 ```
 
 The first tokenization was accomplished using a regular expression \autoref{regex1} in python (v.3.7.3) using the `re` (regular expression) library. This regular expression can be changed by passing any valid regular expression for the `regex1` parameter.
-![The regular expression used for the first tokenization.\label{regex1}](regex1.png)
+![Figure 5: The regular expression used for the first tokenization.\label{regex1}](regex1.png)
 
 At this point, we have two tokens because there are two periods followed by a line feed character.
 
@@ -145,9 +145,9 @@ Next, each token is examined and split again if it contains a line feed characte
 - En dash (```-```)
 - Number sign (```#```)  
 
-Using our sample text, token 4 is split into several new tokens, which are then inserted into our token list. If a token does not need to be split further, it is added to our list as-is. The regular expression for the split described in \autoref{regex2}. This regular expression can be changed by passing any valid regular expression for the `regex2` parameter.
+Using our sample text, token 4 is split into several new tokens, which are then inserted into our token list. If a token does not need to be split further, it is added to our list as-is. The regular expression for the split shown in Figure 6. This regular expression can be changed by passing any valid regular expression for the `regex2` parameter.
 
-![The regular expression used to calculate the second tokenization.\label{regex2}](regex2.png)
+![Figure 6: The regular expression used to calculate the second tokenization.\label{regex2}](regex2.png)
 
 After the token has been split, the text is cleaned up to increase the matches and focus on the text rather than the formatting. All line feed characters are replaced with one white space. White spaces at the beginning and end of a token are removed, then the token is added to the new token list.
 
@@ -249,7 +249,7 @@ uniq = str("\n".join(text))
 
 The final output contains three highlighted duplicate tokens:  
 
-![Marked output from the example text.  ](example_output.png)
+![Figure 7: Marked output from the example text.  ](example_output.png)
 
 The marked text can be deleted for statistical analyses.  
 
@@ -281,10 +281,10 @@ The duplicates can be marked using:
 
 
 # Results
-\autoref{output_notes1} and \autoref{output_notes2} show the sample nurse’s and physicians’ notes after Bloatectomy.
+Figures 8 and 9 show the sample nurses' and physicians’ notes after Bloatectomy.
 
-![Figure 4. The same nurse’s notes from \autoref{notes1}, after Bloatectomy.\label{output_notes1}](output_notes1.png)
-![Figure 5. The same physicians’ notes from \autoref{notes2}, after Bloatectomy.\label{output_notes2}](output_notes2.png)
+![Figure 8. The same nurse’s notes from \autoref{notes1}, after Bloatectomy.\label{output_notes1}](output_notes1.png)
+![Figure 9. The same physicians’ notes from \autoref{notes2}, after Bloatectomy.\label{output_notes2}](output_notes2.png)
 
 We note that Bloatectomy doesn’t exactly replicate manual evaluation of duplications.   
 
