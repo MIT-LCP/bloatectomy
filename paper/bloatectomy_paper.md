@@ -1,6 +1,6 @@
----
-title: 'Bloatectomy: A python package for the identification and removal of duplicate text in the bloated notes of electronic health records and other documents'
-tags:
+# 'Bloatectomy: A python package for the identification and removal of duplicate text in the bloated notes of electronic health records and other documents'
+
+## tags:
   - python
   - medical informatics
   - electronic health records
@@ -10,7 +10,8 @@ tags:
   - health informatics
   - natural language processing
   - data augmentation
-authors:
+  
+## authors:
   -  name: Summer K. Rankin*
      orcid: 0000-0002-6886-3983
      affiliation: "1"
@@ -19,17 +20,17 @@ authors:
      affiliation: "2"
   -  name: Katherine Dowdy
      affiliation: "1"
-affiliations:
+## affiliations:
  - name: Booz Allen Hamilton, McLean, VA, USA rankin\_summer@bah.com
    index: "1"
  - name: Office of Health Informatics, Office of the Chief Scientist, Office of the Commissioner, U.S. Food and Drug Administration, 10903 New Hampshire Avenue, Silver Spring, MD, USA 20993-0002 roselie.bright@fda.hhs.gov.
    index: "2"
-date: 1 June 2020
+## date: 1 June 2020
 bibliography: paper.bib
----  
-url: https://github.com/MIT-LCP/bloatectomy  
-pypi: https://pypi.org/project/bloatectomy/  
-anaconda: https://anaconda.org/summerkrankin/bloatectomy  
+
+**url:** https://github.com/MIT-LCP/bloatectomy  
+**pypi:** https://pypi.org/project/bloatectomy/  
+**anaconda:** https://anaconda.org/summerkrankin/bloatectomy  
 *corresponding author   
 The authors are listed in order of contributions to the work and manuscript.
 
