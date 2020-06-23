@@ -12,27 +12,24 @@
   - data augmentation
   
 ## authors:
-  -  name: Summer K. Rankin*
+  -  name: Summer K. Rankin<sup>*1</sup>
      orcid: 0000-0002-6886-3983
-     affiliation: "1"
-  -  name: Roselie Bright
+  -  name: Roselie Bright<sup>2</sup>
      orcid: 0000-0002-7565-1284
-     affiliation: "2"
-  -  name: Katherine Dowdy
-     affiliation: "1"
+  -  name: Katherine Dowdy<sup>1</sup>
 ## affiliations:
- - name: Booz Allen Hamilton, McLean, VA, USA rankin\_summer@bah.com
-   index: "1"
- - name: Office of Health Informatics, Office of the Chief Scientist, Office of the Commissioner, U.S. Food and Drug Administration, 10903 New Hampshire Avenue, Silver Spring, MD, USA 20993-0002 roselie.bright@fda.hhs.gov.
-   index: "2"
-## date: 1 June 2020
+ - **1** Booz Allen Hamilton, McLean, VA, USA rankin\_summer@bah.com
+ - **2** Office of Health Informatics, Office of the Chief Scientist, Office of the Commissioner, U.S. Food and Drug Administration, 10903 New Hampshire Avenue, Silver Spring, MD, USA 20993-0002 roselie.bright@fda.hhs.gov.
+ - *corresponding author   
+The authors are listed in order of contributions to the work and manuscript.
+
+date: 1 June 2020
 bibliography: paper.bib
 
 **url:** https://github.com/MIT-LCP/bloatectomy  
 **pypi:** https://pypi.org/project/bloatectomy/  
 **anaconda:** https://anaconda.org/summerkrankin/bloatectomy  
-*corresponding author   
-The authors are listed in order of contributions to the work and manuscript.
+
 
 
 # Summary
