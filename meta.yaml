@@ -30,8 +30,8 @@ about:
   license_family: GPL3
   license_file: LICENSE
   summary: "Bloatectomy: a method for the identification and removal of duplicate text in the bloated notes of electronic health records and other documents."
-  doc_url:
-  dev_url:
+  doc_url: "https://github.com/MIT-LCP/bloatectomy/blob/master/bloatectomy_paper.pdf"
+  dev_url: "https://github.com/MIT-LCP/bloatectomy/bloatectomy"
 
 extra:
   recipe-maintainers:
