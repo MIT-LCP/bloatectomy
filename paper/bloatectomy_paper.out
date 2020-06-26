@@ -1,0 +1,20 @@
+\BOOKMARK [0][-]{chapter.1}{Bloatectomy:}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Introduction}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Duplicate Detection}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.2.1}{Document Selection}{section.1.2}% 4
+\BOOKMARK [2][-]{subsection.1.2.2}{Code and Example}{section.1.2}% 5
+\BOOKMARK [3][-]{section*.3}{Create Sentence Tokens}{subsection.1.2.2}% 6
+\BOOKMARK [3][-]{section*.4}{Create List Token}{subsection.1.2.2}% 7
+\BOOKMARK [3][-]{section*.5}{Assign Either New or Old Hash Number}{subsection.1.2.2}% 8
+\BOOKMARK [3][-]{section*.6}{Use the Hash Table of Tokens}{subsection.1.2.2}% 9
+\BOOKMARK [2][-]{subsection.1.2.3}{Parameter Adjustments}{section.1.2}% 10
+\BOOKMARK [1][-]{section.1.3}{Results}{chapter.1}% 11
+\BOOKMARK [1][-]{section.1.4}{Conclusions}{chapter.1}% 12
+\BOOKMARK [1][-]{section.1.5}{Installation}{chapter.1}% 13
+\BOOKMARK [1][-]{section.1.6}{Examples}{chapter.1}% 14
+\BOOKMARK [1][-]{section.1.7}{Parameters}{chapter.1}% 15
+\BOOKMARK [2][-]{section*.7}{Acknowledgements}{section.1.7}% 16
+\BOOKMARK [3][-]{section*.8}{Funding}{section*.7}% 17
+\BOOKMARK [3][-]{section*.9}{Conflict of Interest}{section*.7}% 18
+\BOOKMARK [3][-]{section*.10}{Disclaimer}{section*.7}% 19
+\BOOKMARK [3][-]{section*.11}{Data Availability}{section*.7}% 20
