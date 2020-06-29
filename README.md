@@ -9,8 +9,8 @@ To acknowledge use of the software, please cite the DOI provided via Zenodo:
 
 ```
 @software{summer_k_rankin_2020_3909030,
-  author       = {Summer K. Rankin and Roselie A. Bright and Kate Dowdy and George Plopper},
-  title        = {Bloatectomy, v0.0.12},
+  author       = {Summer K. Rankin and Roselie A. Bright and Kate Dowdy},
+  title        = {Bloatectomy},
   month        = jun,
   year         = 2020,
   publisher    = {Zenodo},
