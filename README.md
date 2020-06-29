@@ -1,9 +1,24 @@
-# Bloatectomy
+# Bloatectomy [![DOI](https://zenodo.org/badge/273322509.svg)](https://zenodo.org/badge/latestdoi/273322509)
+
 Bloatectomy: a method for the identification and removal of duplicate text in the bloated notes of electronic health records and other documents. Takes in a list of notes or a single file (.docx, .txt, .rtf, etc) or single string to be marked for duplicates which can then be highlighted, bolded, or removed. Marked output and tokens are output.
 
 # Paper
 For details about how the package works and our reasons for developing it, read the paper here https://github.com/MIT-LCP/bloatectomy/blob/master/bloatectomy_paper.pdf
 
+To acknowledge use of the software, please cite the DOI provided via Zenodo:
+
+```
+@software{summer_k_rankin_2020_3909030,
+  author       = {Summer K. Rankin and Roselie A. Bright and Kate Dowdy and George Plopper},
+  title        = {Bloatectomy, v0.0.12},
+  month        = jun,
+  year         = 2020,
+  publisher    = {Zenodo},
+  version      = {v0.0.12},
+  doi          = {10.5281/zenodo.3909030},
+  url          = {https://doi.org/10.5281/zenodo.3909030}
+}
+```
 # Requirements
 - Python>=3.7.x (in order for the regular expressions to work correctly)
 - re
