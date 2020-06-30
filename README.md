@@ -6,7 +6,10 @@ Bloatectomy: a method for the identification and removal of duplicate text in th
 For details about how the package works and our reasons for developing it, read the paper here https://github.com/MIT-LCP/bloatectomy/blob/master/bloatectomy_paper.pdf
 
 To acknowledge use of the software, please cite the DOI provided via Zenodo:
-
+```
+Summer K. Rankin, Roselie Bright, & Katherine Dowdy. (2020, June 26). Bloatectomy (Version v0.0.12). Zenodo. http://doi.org/10.5281/zenodo.3909030
+```
+or
 ```
 @software{summer_k_rankin_2020_3909030,
   author       = {Summer K. Rankin and Roselie A. Bright and Kate Dowdy},
